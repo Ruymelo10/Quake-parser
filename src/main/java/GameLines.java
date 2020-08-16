@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameLines {
@@ -5,7 +6,7 @@ public class GameLines {
     private List<String> lines;
 
     public GameLines() {
-        this.lines = lines;
+        this.lines = new ArrayList<>();
     }
 
     public String getName() { return name; }
@@ -14,8 +15,6 @@ public class GameLines {
 
     public void setName(String name) {this.name = name; }
 
-    public void setLines(List<String> lines) { this.lines = lines; }
-
-    public  void  addLine(String line){lines.add(line)}
+    public  void  addLine(String line){lines.add(line);}
 
 }

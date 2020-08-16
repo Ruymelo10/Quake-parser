@@ -7,6 +7,9 @@ public class Player {
         this.name = name;
         this.kd = kd;
     }
+    public String toString() {
+        return "nome: " + this.name + ", playerKD: " + this.kd;
+    }
 
     public String getName(){ return name; }
 
@@ -14,9 +17,6 @@ public class Player {
 
     public PlayerKD getKd() { return kd; }
 
-    public void setName(String name){ this.name = name; }
-
     public void setId(String id) { this.id = id; }
 
-    public void setKd(PlayerKD kd) { this.kd = kd; }
 }

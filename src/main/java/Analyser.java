@@ -12,7 +12,6 @@ public class Analyser {
             Matcher Kill = RegExp.getMatcherForSentence(line, "Kill");
             if(Kill.matches()){
                 analyserKill(Kill, players);
-
             }
         }
     }
@@ -34,7 +33,7 @@ public class Analyser {
             playerID="";
             playerName = "";
         }
-        if (!player.contains(playerID)){
+        if (players.containsKey(playerID)){
             Player old = players.get(playerID);
             if(!old.getName().equals(playerName)){
                 players.remove(playerID);
@@ -57,22 +56,23 @@ public class Analyser {
         String idKilled = matcherKD.group(2);
         String type = matcherKD.group(3);
 
-        Player killer = players.get(idKiller);
+
         if (!idKiller.equals(idKilled)){
-            if(killer!=null){
+            Player killer = players.get(idKiller);
+            if(!(killer==null)){
                 killer.getKd().Kill();
                 killer.getKd().ValidKill();
             }
         }
 
         Player killed = players.get(idKilled);
-        if(killed!=null){
+        if(!(killed==null)){
             killed.getKd().Death();
             killed.getKd().incDeathType(DeathType.getType(Integer.valueOf(type)));
         }
         if(idKiller.equals("1022")){
             Player KilledWorld = players.get(idKilled);
-            if(KilledWorld!=null){
+            if(!(KilledWorld == null)){
                 KilledWorld.getKd().WorldKill();
             }
         }

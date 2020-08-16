@@ -26,11 +26,11 @@ public enum  DeathType {
 
     private int id;
 
-    DeathType(int id) { this.id = id; }
+    DeathType(final int id) { this.id = id; }
 
     public int getId() { return id; }
 
-    public static DeathType getType(int value){
+    public static DeathType getType(final int value){
         for (final DeathType dt : values()) {
             if (Integer.compare(value, dt.getId()) == 0) {
                 return dt;
