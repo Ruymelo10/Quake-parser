@@ -11,6 +11,15 @@ public class Parser{
            final String direc = new Scanner(System.in).next();
            try {
                 lines= Files.readAllLines(Paths.get(direc));
+               ParseGame game = new ParseGame(lines);
+               List<Game> games = game.ParseGames();
+               for (Game g:games){
+                   System.out.println(g.getGamename());
+                   List<Player> players = g.getPlayers();
+                   for (Player p : players){
+                       System.out.println(p.getName() + " "+ p.getKd().getValidKills());
+                   }
+               }
            }
            catch (IOException e){
                System.out.println("Erro");

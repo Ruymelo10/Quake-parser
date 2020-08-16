@@ -30,7 +30,7 @@ public enum  DeathType {
 
     public int getId() { return id; }
 
-    public static DeathType getByValue(int value){
+    public static DeathType getType(int value){
         for (final DeathType dt : values()) {
             if (Integer.compare(value, dt.getId()) == 0) {
                 return dt;

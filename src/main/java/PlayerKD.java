@@ -4,11 +4,11 @@ public class PlayerKD {
     private Integer ValidKills, TotalKills, TotalDeaths;
     private Map<DeathType, Integer> deathTypeIntegerM;
 
-    public PlayerKD(Integer validKills, Integer totalKills, Integer totalDeaths, Map<DeathType, Integer> deathTypeIntegerM) {
-        ValidKills = validKills;
-        TotalKills = totalKills;
-        TotalDeaths = totalDeaths;
-        this.deathTypeIntegerM = new HashMap<>();
+    public PlayerKD() {
+        ValidKills = 0;
+        TotalKills = 0;
+        TotalDeaths = 0;
+        deathTypeIntegerM = new HashMap<>();
     }
 
     public Map<DeathType, Integer> getDeathTypeIntegerM() { return deathTypeIntegerM; }
@@ -25,7 +25,7 @@ public class PlayerKD {
 
     public void Death(){ TotalDeaths++; }
 
-    public void WorldKill(){ TotalKills--; }
+    public void WorldKill(){ ValidKills--; }
 
     public void incDeathType(DeathType dt){
         if(deathTypeIntegerM.containsKey(dt)){
